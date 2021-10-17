@@ -21,6 +21,7 @@
 		ECDB84B7271C0FEE00C0199E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84B6271C0FEE00C0199E /* Auth.swift */; };
 		ECDB84BA271C10DB00C0199E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ECDB84B9271C10DB00C0199E /* Alamofire */; };
 		ECDB84BC271C1B1400C0199E /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84BB271C1B1400C0199E /* EditProfileViewController.swift */; };
+		ECDB84BE271C3C1600C0199E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84BD271C3C1600C0199E /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		ECDB84B4271C0FD800C0199E /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		ECDB84B6271C0FEE00C0199E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		ECDB84BB271C1B1400C0199E /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		ECDB84BD271C3C1600C0199E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				ECDB84B4271C0FD800C0199E /* Users.swift */,
 				ECDB84B6271C0FEE00C0199E /* Auth.swift */,
+				ECDB84BD271C3C1600C0199E /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				ECDB8497271BF14200C0199E /* LoginViewController.swift in Sources */,
 				ECDB84AD271C06CB00C0199E /* AccountViewController.swift in Sources */,
 				ECDB8493271BF14200C0199E /* AppDelegate.swift in Sources */,
+				ECDB84BE271C3C1600C0199E /* Task.swift in Sources */,
 				ECDB8495271BF14200C0199E /* SceneDelegate.swift in Sources */,
 				ECDB84AF271C06E600C0199E /* ToDoListViewController.swift in Sources */,
 				ECDB84AB271BF48400C0199E /* RegisterViewController.swift in Sources */,
