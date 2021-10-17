@@ -16,12 +16,7 @@ class RegisterViewController: UIViewController {
 	@IBOutlet weak var ageTf: UITextField!
 	@IBOutlet weak var registerBtn: UIButton!
 
-	let baseUrl = "https://api-nodejs-todolist.herokuapp.com"
-
-	var httpHeader: HTTPHeaders = [
-			"Content-Type" : "application/json",
-			"Accept" : "application/json"
-		]
+	let presenter = RegisterPresenter(service: RegisterService.shared)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,37 +31,11 @@ class RegisterViewController: UIViewController {
 
 	@IBAction func registerPressed(_ sender: UIButton) {
 		if let name = nameTf.text, let email = emailTf.text, let pass = passTf.text, let ageStr = ageTf.text, let age = UInt(ageStr) {
-			register(name: name, email: email, pass: pass, age: age)
+			presenter.register(name: name, email: email, pass: pass, age: age)
 		}
 	}
 	
 	@IBAction func closePressed(_ sender: UIButton) {
 		self.dismiss(animated: true, completion: nil)
-	}
-
-	func register(name: String, email: String, pass: String, age: UInt) {
-		let params = Register(name: name, email: email, password: pass, age: age)
-
-		AF.request(URL(string: baseUrl + "/user/register")!, method: .post, parameters: params, encoder: JSONParameterEncoder.default, headers: httpHeader)
-			.validate(statusCode: 200..<500)
-			.responseData { response in
-				if let data = response.data {
-					self.parseJSON(data)
-				}
-			}
-	}
-
-	func parseJSON(_ Data: Data) {
-		let decoder = JSONDecoder()
-		do {
-			let decodedData = try decoder.decode(LoginResponse.self, from: Data)
-			debugPrint(decodedData)
-
-			UserDefaults.standard.set(decodedData.token, forKey: "auth.accessToken")
-
-			self.performSegue(withIdentifier: "toHomeFromRegist", sender: self)
-		} catch {
-			print(error)
-		}
 	}
 }

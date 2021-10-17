@@ -22,6 +22,12 @@
 		ECDB84BA271C10DB00C0199E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ECDB84B9271C10DB00C0199E /* Alamofire */; };
 		ECDB84BC271C1B1400C0199E /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84BB271C1B1400C0199E /* EditProfileViewController.swift */; };
 		ECDB84BE271C3C1600C0199E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84BD271C3C1600C0199E /* Task.swift */; };
+		ECDB84C1271C57CD00C0199E /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84C0271C57CD00C0199E /* LoginPresenter.swift */; };
+		ECDB84C4271C581200C0199E /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84C3271C581200C0199E /* LoginService.swift */; };
+		ECDB84C6271C5CEE00C0199E /* LoginView+LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84C5271C5CEE00C0199E /* LoginView+LoginPresenter.swift */; };
+		ECDB84C8271C5EBC00C0199E /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84C7271C5EBC00C0199E /* RegisterService.swift */; };
+		ECDB84CA271C5F6E00C0199E /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84C9271C5F6E00C0199E /* RegisterPresenter.swift */; };
+		ECDB84CC271C607D00C0199E /* RegisterView+Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84CB271C607D00C0199E /* RegisterView+Presenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +47,12 @@
 		ECDB84B6271C0FEE00C0199E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		ECDB84BB271C1B1400C0199E /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		ECDB84BD271C3C1600C0199E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		ECDB84C0271C57CD00C0199E /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		ECDB84C3271C581200C0199E /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		ECDB84C5271C5CEE00C0199E /* LoginView+LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginView+LoginPresenter.swift"; sourceTree = "<group>"; };
+		ECDB84C7271C5EBC00C0199E /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
+		ECDB84C9271C5F6E00C0199E /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
+		ECDB84CB271C607D00C0199E /* RegisterView+Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterView+Presenter.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +86,7 @@
 		ECDB8491271BF14200C0199E /* ToDoListApp */ = {
 			isa = PBXGroup;
 			children = (
+				ECDB84C2271C57F800C0199E /* Service */,
 				ECDB84A6271BF14D00C0199E /* Base */,
 				ECDB84A7271BF15A00C0199E /* Common */,
 				ECDB849B271BF14300C0199E /* Assets.xcassets */,
@@ -94,6 +107,7 @@
 		ECDB84A7271BF15A00C0199E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				ECDB84BF271C453000C0199E /* Presenter */,
 				ECDB84B0271C07C100C0199E /* Extension */,
 				ECDB84B3271C0FB800C0199E /* Model */,
 				ECDB84A8271BF16200C0199E /* Controller */,
@@ -127,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				ECDB84B1271C07D400C0199E /* ListView+UITable.swift */,
+				ECDB84C5271C5CEE00C0199E /* LoginView+LoginPresenter.swift */,
+				ECDB84CB271C607D00C0199E /* RegisterView+Presenter.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -139,6 +155,24 @@
 				ECDB84BD271C3C1600C0199E /* Task.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		ECDB84BF271C453000C0199E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB84C0271C57CD00C0199E /* LoginPresenter.swift */,
+				ECDB84C9271C5F6E00C0199E /* RegisterPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		ECDB84C2271C57F800C0199E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB84C3271C581200C0199E /* LoginService.swift */,
+				ECDB84C7271C5EBC00C0199E /* RegisterService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +251,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECDB84C1271C57CD00C0199E /* LoginPresenter.swift in Sources */,
+				ECDB84C4271C581200C0199E /* LoginService.swift in Sources */,
 				ECDB84B5271C0FD800C0199E /* Users.swift in Sources */,
 				ECDB8497271BF14200C0199E /* LoginViewController.swift in Sources */,
 				ECDB84AD271C06CB00C0199E /* AccountViewController.swift in Sources */,
@@ -224,10 +260,14 @@
 				ECDB84BE271C3C1600C0199E /* Task.swift in Sources */,
 				ECDB8495271BF14200C0199E /* SceneDelegate.swift in Sources */,
 				ECDB84AF271C06E600C0199E /* ToDoListViewController.swift in Sources */,
+				ECDB84C8271C5EBC00C0199E /* RegisterService.swift in Sources */,
 				ECDB84AB271BF48400C0199E /* RegisterViewController.swift in Sources */,
 				ECDB84B2271C07D400C0199E /* ListView+UITable.swift in Sources */,
+				ECDB84CC271C607D00C0199E /* RegisterView+Presenter.swift in Sources */,
+				ECDB84C6271C5CEE00C0199E /* LoginView+LoginPresenter.swift in Sources */,
 				ECDB84BC271C1B1400C0199E /* EditProfileViewController.swift in Sources */,
 				ECDB84B7271C0FEE00C0199E /* Auth.swift in Sources */,
+				ECDB84CA271C5F6E00C0199E /* RegisterPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
