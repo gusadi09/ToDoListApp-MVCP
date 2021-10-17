@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,9 @@
 		ECDB84AD271C06CB00C0199E /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84AC271C06CB00C0199E /* AccountViewController.swift */; };
 		ECDB84AF271C06E600C0199E /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84AE271C06E600C0199E /* ToDoListViewController.swift */; };
 		ECDB84B2271C07D400C0199E /* ListView+UITable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84B1271C07D400C0199E /* ListView+UITable.swift */; };
+		ECDB84B5271C0FD800C0199E /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84B4271C0FD800C0199E /* Users.swift */; };
+		ECDB84B7271C0FEE00C0199E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84B6271C0FEE00C0199E /* Auth.swift */; };
+		ECDB84BA271C10DB00C0199E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ECDB84B9271C10DB00C0199E /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,8 @@
 		ECDB84AC271C06CB00C0199E /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		ECDB84AE271C06E600C0199E /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		ECDB84B1271C07D400C0199E /* ListView+UITable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListView+UITable.swift"; sourceTree = "<group>"; };
+		ECDB84B4271C0FD800C0199E /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		ECDB84B6271C0FEE00C0199E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECDB84BA271C10DB00C0199E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				ECDB84B0271C07C100C0199E /* Extension */,
+				ECDB84B3271C0FB800C0199E /* Model */,
 				ECDB84A8271BF16200C0199E /* Controller */,
 				ECDB84A9271BF16B00C0199E /* View */,
 			);
@@ -119,6 +126,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		ECDB84B3271C0FB800C0199E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB84B4271C0FD800C0199E /* Users.swift */,
+				ECDB84B6271C0FEE00C0199E /* Auth.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +151,9 @@
 			dependencies = (
 			);
 			name = ToDoListApp;
+			packageProductDependencies = (
+				ECDB84B9271C10DB00C0199E /* Alamofire */,
+			);
 			productName = ToDoListApp;
 			productReference = ECDB848F271BF14200C0199E /* ToDoListApp.app */;
 			productType = "com.apple.product-type.application";
@@ -162,6 +181,9 @@
 				Base,
 			);
 			mainGroup = ECDB8486271BF14200C0199E;
+			packageReferences = (
+				ECDB84B8271C10DB00C0199E /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = ECDB8490271BF14200C0199E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -189,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECDB84B5271C0FD800C0199E /* Users.swift in Sources */,
 				ECDB8497271BF14200C0199E /* LoginViewController.swift in Sources */,
 				ECDB84AD271C06CB00C0199E /* AccountViewController.swift in Sources */,
 				ECDB8493271BF14200C0199E /* AppDelegate.swift in Sources */,
@@ -196,6 +219,7 @@
 				ECDB84AF271C06E600C0199E /* ToDoListViewController.swift in Sources */,
 				ECDB84AB271BF48400C0199E /* RegisterViewController.swift in Sources */,
 				ECDB84B2271C07D400C0199E /* ListView+UITable.swift in Sources */,
+				ECDB84B7271C0FEE00C0199E /* Auth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +421,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ECDB84B8271C10DB00C0199E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ECDB84B9271C10DB00C0199E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECDB84B8271C10DB00C0199E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ECDB8487271BF14200C0199E /* Project object */;
 }

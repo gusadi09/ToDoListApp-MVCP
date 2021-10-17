@@ -195,11 +195,12 @@
                         <outlet property="passTf" destination="GV9-Pw-VPb" id="PQp-HS-zb1"/>
                         <outlet property="registerBtn" destination="iyY-Hr-cZm" id="8H3-xd-CRx"/>
                         <outlet property="registerLabel" destination="GnJ-LV-Oym" id="xdL-Da-bzx"/>
+                        <segue destination="VE8-4o-HKB" kind="presentation" identifier="toHomeFromRegist" modalPresentationStyle="fullScreen" id="4zk-ti-gxp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62u-f2-fst" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1862" y="861"/>
+            <point key="canvasLocation" x="1862" y="837"/>
         </scene>
         <!--List-->
         <scene sceneID="Zib-bv-l9A">
@@ -321,6 +322,7 @@
                         <outlet property="emailLabel" destination="pPc-fD-eh2" id="Ftw-lp-6WX"/>
                         <outlet property="logoutBtn" destination="HFa-Jg-QCr" id="xct-Ug-GAL"/>
                         <outlet property="nameLabel" destination="2NZ-ux-DBa" id="FDJ-Z1-UOM"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutRoute" modalPresentationStyle="fullScreen" id="JlW-98-Yzf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAG-gm-XYL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -334,6 +336,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="8LY-US-Lf2"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QaB-do-gKF">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -386,6 +389,9 @@
             <point key="canvasLocation" x="2990" y="773"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="4zk-ti-gxp"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>

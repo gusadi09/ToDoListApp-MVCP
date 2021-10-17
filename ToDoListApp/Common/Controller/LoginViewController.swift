@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginViewController: UIViewController {
 	@IBOutlet weak var loginLabel: UILabel!
@@ -13,6 +14,12 @@ class LoginViewController: UIViewController {
 	@IBOutlet weak var passTf: UITextField!
 	@IBOutlet weak var loginBtn: UIButton!
 
+	let baseUrl = "https://api-nodejs-todolist.herokuapp.com"
+
+	var httpHeader: HTTPHeaders = [
+			"Content-Type" : "application/json",
+			"Accept" : "application/json"
+		]
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -42,7 +49,37 @@ class LoginViewController: UIViewController {
 	}
 
 	@IBAction func loginPressed(_ sender: UIButton) {
-		self.performSegue(withIdentifier: "toHome", sender: self)
+		if let email = emailTf.text, let pass = passTf.text {
+			login(email: email, pass: pass)
+		} else {
+			print("Cant empty")
+		}
+	}
+
+	func login(email: String, pass: String) {
+		let params = Login(email: email, password: pass)
+
+		AF.request(URL(string: baseUrl + "/user/login")!, method: .post, parameters: params, encoder: JSONParameterEncoder.default, headers: httpHeader)
+			.validate(statusCode: 200..<500)
+			.responseData { response in
+				if let data = response.data {
+					self.parseJSON(data)
+				}
+			}
+	}
+
+	func parseJSON(_ Data: Data) {
+		let decoder = JSONDecoder()
+		do {
+			let decodedData = try decoder.decode(LoginResponse.self, from: Data)
+			debugPrint(decodedData)
+
+			UserDefaults.standard.set(decodedData.token, forKey: "auth.accessToken")
+
+			self.performSegue(withIdentifier: "toHome", sender: self)
+		} catch {
+			print(error)
+		}
 	}
 }
 
