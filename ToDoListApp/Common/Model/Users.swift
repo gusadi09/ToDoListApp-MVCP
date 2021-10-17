@@ -21,3 +21,14 @@ struct UserResponse: Codable {
 		case v = "__v"
 	}
 }
+
+struct Update: Codable {
+	var name: String?
+	var email: String?
+	var age: Int?
+}
+
+struct EditResponse: Codable {
+	var success: Bool
+	var data: UserResponse
+}

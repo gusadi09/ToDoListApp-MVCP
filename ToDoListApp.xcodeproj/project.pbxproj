@@ -20,6 +20,7 @@
 		ECDB84B5271C0FD800C0199E /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84B4271C0FD800C0199E /* Users.swift */; };
 		ECDB84B7271C0FEE00C0199E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84B6271C0FEE00C0199E /* Auth.swift */; };
 		ECDB84BA271C10DB00C0199E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ECDB84B9271C10DB00C0199E /* Alamofire */; };
+		ECDB84BC271C1B1400C0199E /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84BB271C1B1400C0199E /* EditProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		ECDB84B1271C07D400C0199E /* ListView+UITable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListView+UITable.swift"; sourceTree = "<group>"; };
 		ECDB84B4271C0FD800C0199E /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		ECDB84B6271C0FEE00C0199E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		ECDB84BB271C1B1400C0199E /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				ECDB84AA271BF48400C0199E /* RegisterViewController.swift */,
 				ECDB84AC271C06CB00C0199E /* AccountViewController.swift */,
 				ECDB84AE271C06E600C0199E /* ToDoListViewController.swift */,
+				ECDB84BB271C1B1400C0199E /* EditProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				ECDB84AF271C06E600C0199E /* ToDoListViewController.swift in Sources */,
 				ECDB84AB271BF48400C0199E /* RegisterViewController.swift in Sources */,
 				ECDB84B2271C07D400C0199E /* ListView+UITable.swift in Sources */,
+				ECDB84BC271C1B1400C0199E /* EditProfileViewController.swift in Sources */,
 				ECDB84B7271C0FEE00C0199E /* Auth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
