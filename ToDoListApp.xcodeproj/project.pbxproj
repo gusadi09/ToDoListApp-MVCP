@@ -56,15 +56,47 @@
 		ECDB8491271BF14200C0199E /* ToDoListApp */ = {
 			isa = PBXGroup;
 			children = (
-				ECDB8492271BF14200C0199E /* AppDelegate.swift */,
-				ECDB8494271BF14200C0199E /* SceneDelegate.swift */,
-				ECDB8496271BF14200C0199E /* ViewController.swift */,
-				ECDB8498271BF14200C0199E /* Main.storyboard */,
+				ECDB84A6271BF14D00C0199E /* Base */,
+				ECDB84A7271BF15A00C0199E /* Common */,
 				ECDB849B271BF14300C0199E /* Assets.xcassets */,
-				ECDB849D271BF14300C0199E /* LaunchScreen.storyboard */,
 				ECDB84A0271BF14300C0199E /* Info.plist */,
 			);
 			path = ToDoListApp;
+			sourceTree = "<group>";
+		};
+		ECDB84A6271BF14D00C0199E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB8492271BF14200C0199E /* AppDelegate.swift */,
+				ECDB8494271BF14200C0199E /* SceneDelegate.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		ECDB84A7271BF15A00C0199E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB84A8271BF16200C0199E /* Controller */,
+				ECDB84A9271BF16B00C0199E /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		ECDB84A8271BF16200C0199E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB8496271BF14200C0199E /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ECDB84A9271BF16B00C0199E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB8498271BF14200C0199E /* Main.storyboard */,
+				ECDB849D271BF14300C0199E /* LaunchScreen.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
