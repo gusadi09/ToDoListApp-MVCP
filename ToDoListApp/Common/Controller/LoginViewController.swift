@@ -8,13 +8,13 @@
 import UIKit
 import Alamofire
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, LoginPresenterDelegate {
 	@IBOutlet weak var loginLabel: UILabel!
 	@IBOutlet weak var emailTf: UITextField!
 	@IBOutlet weak var passTf: UITextField!
 	@IBOutlet weak var loginBtn: UIButton!
 
-	let presenter = LoginPresenter(service: LoginService.shared)
+	let presenter = LoginPresenter(service: AuthService.shared)
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -51,5 +51,15 @@ class LoginViewController: UIViewController {
 		} else {
 			print("Cant empty")
 		}
+	}
+
+	func didUpdateToken(token: String) {
+		debugPrint(token)
+		UserDefaults.standard.set(token, forKey: "auth.accessToken")
+		self.performSegue(withIdentifier: "toHome", sender: self)
+	}
+
+	func didFailWithError(error: Error) {
+		print(error)
 	}
 }

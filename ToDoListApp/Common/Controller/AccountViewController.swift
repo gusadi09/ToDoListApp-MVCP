@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import Alamofire
 
-class AccountViewController: UIViewController {
+class AccountViewController: UIViewController, AccountPresenterDelegate {
+
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var emailLabel: UILabel!
 	@IBOutlet weak var logoutBtn: UIButton!
@@ -18,18 +18,15 @@ class AccountViewController: UIViewController {
 
 	let token = UserDefaults.standard.object(forKey: "auth.accessToken") as? String
 
-	let baseUrl = "https://api-nodejs-todolist.herokuapp.com"
-
-	var httpHeader: HTTPHeaders = [
-			"Content-Type" : "application/json",
-			"Accept" : "application/json"
-		]
+	let presenter = AccountPresenter(service: AuthService.shared, userService: UserService.shared)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		setupUI()
 
-		getUser(with: self.token ?? "")
+		presenter.delegate = self
+
+		presenter.getUser(with: token ?? "")
     }
 
 	func setupUI() {
@@ -43,23 +40,11 @@ class AccountViewController: UIViewController {
 	}
     
 	@IBAction func logoutPressed(_ sender: UIButton) {
-		logout(with: self.token ?? "")
+		presenter.logout(with: self.token ?? "")
 	}
 
 	@IBAction func editPressed(_ sender: UIButton) {
 		self.performSegue(withIdentifier: "toEdit", sender: self)
-	}
-
-	func getUser(with token: String) {
-		httpHeader.add(.authorization(bearerToken: token))
-
-		AF.request(URL(string: baseUrl + "/user/me")!, method: .get, headers: httpHeader)
-			.validate(statusCode: 200..<500)
-			.responseData { response in
-				if let data = response.data {
-					self.parseJSONGetUser(data)
-				}
-			}
 	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -71,43 +56,21 @@ class AccountViewController: UIViewController {
 		}
 	}
 
-	func logout(with token: String) {
-		httpHeader.add(.authorization(bearerToken: token))
-
-		AF.request(URL(string: baseUrl + "/user/logout")!, method: .post, headers: httpHeader)
-			.validate(statusCode: 200..<500)
-			.responseData { response in
-				if let data = response.data {
-					self.parseJSONLogout(data)
-				}
-			}
-	}
-
-	func parseJSONLogout(_ Data: Data) {
-		let decoder = JSONDecoder()
-		do {
-			let decodedData = try decoder.decode(LogoutResponse.self, from: Data)
-			debugPrint(decodedData)
-
+	func didUpdateSuccesLogout(success: Bool) {
+		if success {
 			self.performSegue(withIdentifier: "logoutRoute", sender: self)
-		} catch {
-			print(error)
 		}
 	}
 
-	func parseJSONGetUser(_ Data: Data) {
-		let decoder = JSONDecoder()
-		do {
-			let decodedData = try decoder.decode(UserResponse.self, from: Data)
-			debugPrint(decodedData)
-
-			DispatchQueue.main.async {
-				self.nameLabel.text = decodedData.name
-				self.emailLabel.text = decodedData.email
-				self.age = UInt(decodedData.age)
-			}
-		} catch {
-			print(error)
+	func didUpdateUser(name: String, email: String, age: Int) {
+		DispatchQueue.main.async {
+			self.nameLabel.text = name
+			self.emailLabel.text = email
+			self.age = UInt(age)
 		}
+	}
+
+	func didFailWithError(error: Error) {
+		print(error)
 	}
 }

@@ -34,12 +34,12 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
 			// delete the table view row
 			tableView.deleteRows(at: [indexPath], with: .fade)
 
-			deleteTask(with: token ?? "", id: arr[indexPath.row].id ?? "")
+			presenter.deleteTask(with: token ?? "", id: arr[indexPath.row].id ?? "")
 		}
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		updateTask(with: token ?? "", id: arr[indexPath.row].id ?? "", completed: arr[indexPath.row].completed ?? false ? false : true)
+		presenter.updateTask(with: token ?? "", id: arr[indexPath.row].id ?? "", completed: arr[indexPath.row].completed ?? false ? false : true)
 		tableView.reloadRows(at: [indexPath], with: .fade)
 	}
 }

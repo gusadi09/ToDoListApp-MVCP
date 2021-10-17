@@ -13,10 +13,10 @@ protocol LoginPresenterDelegate: NSObjectProtocol {
 }
 
 final class LoginPresenter {
-	private let loginService: LoginService
+	private let loginService: AuthService
 	weak var delegate: LoginPresenterDelegate?
 
-	init(service: LoginService) {
+	init(service: AuthService) {
 		self.loginService = service
 	}
 

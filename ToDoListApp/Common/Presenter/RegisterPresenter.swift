@@ -13,10 +13,10 @@ protocol RegisterPresenterDelegate: NSObjectProtocol {
 }
 
 final class RegisterPresenter {
-	private let regisService: RegisterService
+	private let regisService: AuthService
 	weak var delegate: RegisterPresenterDelegate?
 
-	init(service: RegisterService) {
+	init(service: AuthService) {
 		self.regisService = service
 	}
 
