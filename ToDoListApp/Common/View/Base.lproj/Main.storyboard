@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="BYZ-38-t0r" customClass="LoginViewController" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -354,7 +354,7 @@
                         <outlet property="logoutBtn" destination="HFa-Jg-QCr" id="xct-Ug-GAL"/>
                         <outlet property="nameLabel" destination="2NZ-ux-DBa" id="FDJ-Z1-UOM"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutRoute" modalPresentationStyle="fullScreen" id="JlW-98-Yzf"/>
-                        <segue destination="la6-eN-ERk" kind="show" identifier="toEdit" id="Qp5-l6-K4L"/>
+                        <segue destination="la6-eN-ERk" kind="presentation" identifier="toEdit" modalPresentationStyle="fullScreen" id="Qp5-l6-K4L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAG-gm-XYL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -366,11 +366,11 @@
             <objects>
                 <viewController id="la6-eN-ERk" customClass="EditProfileViewController" customModule="ToDoListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PZS-gk-1ae">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="nSS-Os-PSG">
-                                <rect key="frame" x="20" y="316" width="374" height="210"/>
+                                <rect key="frame" x="20" y="343" width="374" height="210"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="lkr-9k-XhW">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="132"/>
@@ -407,27 +407,30 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berhasil Dirubah" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64Q-bY-jb2">
-                                <rect key="frame" x="103.5" y="20" width="207" height="60"/>
-                                <color key="backgroundColor" systemColor="labelColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4f-6P-Ryr">
+                                <rect key="frame" x="20" y="69" width="60.5" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="qh9-tk-9vW"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="207" id="v4A-VH-Fti"/>
+                                    <constraint firstAttribute="height" constant="22" id="SXn-aP-ib2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60.5" id="kV1-mz-omb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" systemColor="systemBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title=" Back" image="chevron.left" catalog="system">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="backPressed:" destination="la6-eN-ERk" eventType="touchUpInside" id="g7E-UQ-Lmg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1nz-lz-iGO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="U4f-6P-Ryr" firstAttribute="leading" secondItem="1nz-lz-iGO" secondAttribute="leading" constant="20" id="28q-dd-Hvp"/>
                             <constraint firstItem="nSS-Os-PSG" firstAttribute="centerY" secondItem="PZS-gk-1ae" secondAttribute="centerY" id="Bdc-Dt-pnP"/>
                             <constraint firstItem="1nz-lz-iGO" firstAttribute="trailing" secondItem="nSS-Os-PSG" secondAttribute="trailing" constant="20" id="Vpt-2o-dUL"/>
                             <constraint firstItem="nSS-Os-PSG" firstAttribute="centerX" secondItem="PZS-gk-1ae" secondAttribute="centerX" id="Wes-2x-Sv7"/>
-                            <constraint firstItem="64Q-bY-jb2" firstAttribute="top" secondItem="1nz-lz-iGO" secondAttribute="top" constant="20" id="Ylb-Fo-Kht"/>
+                            <constraint firstItem="U4f-6P-Ryr" firstAttribute="top" secondItem="1nz-lz-iGO" secondAttribute="top" constant="25" id="ZNt-3d-BR3"/>
                             <constraint firstItem="nSS-Os-PSG" firstAttribute="leading" secondItem="1nz-lz-iGO" secondAttribute="leading" constant="20" id="qAZ-Ya-d8j"/>
-                            <constraint firstItem="64Q-bY-jb2" firstAttribute="centerX" secondItem="PZS-gk-1ae" secondAttribute="centerX" id="zMD-U7-1q9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0f8-Zi-uKb"/>
@@ -436,7 +439,6 @@
                         <outlet property="emailTf" destination="mJG-Vg-luf" id="dAg-66-6cq"/>
                         <outlet property="nameTf" destination="Tib-1B-Fgt" id="rqD-PA-MXy"/>
                         <outlet property="saveBtn" destination="vnS-Yp-xql" id="G6L-tI-Zf8"/>
-                        <outlet property="succesLabel" destination="64Q-bY-jb2" id="Z7U-wL-QfO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Pl-Kd-gdO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -446,7 +448,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="OuB-n1-PJf">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="VE8-4o-HKB" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="homeVC" automaticallyAdjustsScrollViewInsets="NO" id="VE8-4o-HKB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="8LY-US-Lf2"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QaB-do-gKF">
@@ -485,9 +487,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4zk-ti-gxp"/>
+        <segue reference="d6r-Sd-pec"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
@@ -497,6 +500,9 @@
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

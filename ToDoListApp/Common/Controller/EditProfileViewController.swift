@@ -8,12 +8,12 @@
 import UIKit
 import Alamofire
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UIViewController, EditProfilePresenterDelegate, AccountPresenterDelegate {
+
 	@IBOutlet weak var nameTf: UITextField!
 	@IBOutlet weak var emailTf: UITextField!
 	@IBOutlet weak var ageTf: UITextField!
 	@IBOutlet weak var saveBtn: UIButton!
-	@IBOutlet weak var succesLabel: UILabel!
 	
 	var nama = ""
 	var email = ""
@@ -21,12 +21,8 @@ class EditProfileViewController: UIViewController {
 
 	let token = UserDefaults.standard.object(forKey: "auth.accessToken") as? String
 
-	let baseUrl = "https://api-nodejs-todolist.herokuapp.com"
-
-	var httpHeader: HTTPHeaders = [
-			"Content-Type" : "application/json",
-			"Accept" : "application/json"
-		]
+	let presenter = EditProfilePresenter(userService: UserService.shared)
+	let AccPresenter = AccountPresenter(service: AuthService.shared, userService: UserService.shared)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,45 +30,39 @@ class EditProfileViewController: UIViewController {
 		saveBtn.layer.masksToBounds = false
 		saveBtn.clipsToBounds = true
 
-		nameTf.text = nama
-		emailTf.text = email
-		ageTf.text = age
+		presenter.delegate = self
+		AccPresenter.delegate = self
+
+		AccPresenter.getUser(with: token ?? "")
     }
 
 	@IBAction func savePressed(_ sender: UIButton) {
 		if let name = nameTf.text, let emails = emailTf.text, let ageStr = ageTf.text, let age = Int(ageStr) {
-			update(with: token ?? "", name: name, email: emails, age: age)
+			presenter.update(with: token ?? "", name: name, email: emails, age: age)
 		}
 	}
 
-	func update(with token: String, name: String?, email: String?, age: Int?) {
-		httpHeader.add(.authorization(bearerToken: token))
-
-		let params = Update(name: name, email: email, age: age)
-
-		AF.request(URL(string: baseUrl + "/user/me")!, method: .put, parameters: params, encoder: JSONParameterEncoder.default, headers: httpHeader)
-			.validate(statusCode: 200..<500)
-			.responseData { response in
-				if let data = response.data {
-					self.parseJSON(data)
-				}
-			}
+	func didUpdateUserSuccess(success: Bool) {
+		if success {
+			self.dismiss(animated: true, completion: nil)
+		}
 	}
 
-	func parseJSON(_ Data: Data) {
-		let decoder = JSONDecoder()
-		do {
-			let decodedData = try decoder.decode(EditResponse.self, from: Data)
-			debugPrint(decodedData)
+	func didFailWithError(error: Error) {
+		print(error)
+	}
 
-			succesLabel.isHidden = false
+	func didUpdateSuccesLogout(success: Bool) {
 
-			DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-				self.succesLabel.isHidden = true
-				self.dismiss(animated: true, completion: nil)
-			}
-		} catch {
-			print(error)
-		}
+	}
+
+	func didUpdateUser(name: String, email: String, age: Int) {
+		nameTf.text = name
+		emailTf.text = email
+		ageTf.text = String(age)
+	}
+
+	@IBAction func backPressed(_ sender: UIButton) {
+		self.dismiss(animated: true, completion: nil)
 	}
 }

@@ -29,6 +29,7 @@
 		ECDB84D0271C6B1900C0199E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84CF271C6B1900C0199E /* UserService.swift */; };
 		ECDB84D2271C734C00C0199E /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84D1271C734C00C0199E /* TaskService.swift */; };
 		ECDB84D4271C738500C0199E /* ToDoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB84D3271C738500C0199E /* ToDoListPresenter.swift */; };
+		ECE3553A271D0137002C9382 /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE35539271D0137002C9382 /* EditProfilePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		ECDB84CF271C6B1900C0199E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		ECDB84D1271C734C00C0199E /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 		ECDB84D3271C738500C0199E /* ToDoListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListPresenter.swift; sourceTree = "<group>"; };
+		ECE35539271D0137002C9382 /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				ECDB84C9271C5F6E00C0199E /* RegisterPresenter.swift */,
 				ECDB84CD271C654400C0199E /* AccountPresenter.swift */,
 				ECDB84D3271C738500C0199E /* ToDoListPresenter.swift */,
+				ECE35539271D0137002C9382 /* EditProfilePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				ECDB84CE271C654400C0199E /* AccountPresenter.swift in Sources */,
 				ECDB84C4271C581200C0199E /* AuthService.swift in Sources */,
 				ECDB84B5271C0FD800C0199E /* Users.swift in Sources */,
+				ECE3553A271D0137002C9382 /* EditProfilePresenter.swift in Sources */,
 				ECDB8497271BF14200C0199E /* LoginViewController.swift in Sources */,
 				ECDB84AD271C06CB00C0199E /* AccountViewController.swift in Sources */,
 				ECDB84D4271C738500C0199E /* ToDoListPresenter.swift in Sources */,

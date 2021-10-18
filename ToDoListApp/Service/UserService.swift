@@ -37,4 +37,26 @@ final class UserService {
 				}
 			}
 	}
+
+	func update(with token: String, name: String?, email: String?, age: Int?, completion: @escaping ((EditResponse?, String?) -> Void)) {
+		httpHeader.add(.authorization(bearerToken: token))
+
+		let params = Update(name: name, email: email, age: age)
+
+		AF.request(URL(string: baseUrl + "/user/me")!, method: .put, parameters: params, encoder: JSONParameterEncoder.default, headers: httpHeader)
+			.validate(statusCode: 200..<500)
+			.responseString { response in
+				switch response.response?.statusCode {
+					case 200:
+						do {
+							let data = try JSONDecoder().decode(EditResponse.self, from: response.data!)
+							completion(data, nil)
+						} catch let error as NSError {
+							print(error)
+						}
+					default:
+						completion(nil, response.value)
+				}
+			}
+	}
 }

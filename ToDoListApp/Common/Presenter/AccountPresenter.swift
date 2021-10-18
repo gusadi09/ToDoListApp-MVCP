@@ -27,6 +27,7 @@ final class AccountPresenter {
 		authService.logout(with: token) { result, error in
 			if result != nil {
 				self.delegate?.didUpdateSuccesLogout(success: result?.success ?? false)
+				UserDefaults.standard.set("", forKey: "auth.accessToken")
 			} else {
 				self.delegate?.didFailWithError(error: error as! Error)
 			}
@@ -36,7 +37,6 @@ final class AccountPresenter {
 	func getUser(with token: String) {
 		userService.getUser(with: token) { result, error in
 			if result != nil {
-				debugPrint(result)
 				self.delegate?.didUpdateUser(name: result?.name ?? "", email: result?.email ?? "", age: result?.age ?? 0)
 			} else {
 				self.delegate?.didFailWithError(error: error as! Error)

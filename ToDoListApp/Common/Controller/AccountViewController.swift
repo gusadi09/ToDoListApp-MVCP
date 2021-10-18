@@ -29,6 +29,12 @@ class AccountViewController: UIViewController, AccountPresenterDelegate {
 		presenter.getUser(with: token ?? "")
     }
 
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		presenter.getUser(with: token ?? "")
+	}
+
 	func setupUI() {
 		logoutBtn.layer.cornerRadius = 10
 		logoutBtn.layer.masksToBounds = false
@@ -45,15 +51,6 @@ class AccountViewController: UIViewController, AccountPresenterDelegate {
 
 	@IBAction func editPressed(_ sender: UIButton) {
 		self.performSegue(withIdentifier: "toEdit", sender: self)
-	}
-
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let view = segue.destination as? EditProfileViewController
-		if segue.identifier == "toEdit" {
-			view?.email = emailLabel.text ?? ""
-			view?.nama = nameLabel.text ?? ""
-			view?.age = String(age)
-		}
 	}
 
 	func didUpdateSuccesLogout(success: Bool) {
