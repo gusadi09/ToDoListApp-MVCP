@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC2EB31C2726461F00AB4132 /* LoginVC+LoginPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2EB31B2726461F00AB4132 /* LoginVC+LoginPresenterDelegate.swift */; };
+		EC2EB31E2726466B00AB4132 /* RegisterVC+RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2EB31D2726466B00AB4132 /* RegisterVC+RegisterPresenter.swift */; };
+		EC2EB320272646A900AB4132 /* AccountVC+AccountPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2EB31F272646A900AB4132 /* AccountVC+AccountPresenterDelegate.swift */; };
+		EC2EB322272646DC00AB4132 /* ToDoListVC+ToDoPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2EB321272646DC00AB4132 /* ToDoListVC+ToDoPresenterDelegate.swift */; };
+		EC2EB3242726471200AB4132 /* EditVC+EditPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2EB3232726471200AB4132 /* EditVC+EditPresenterDelegate.swift */; };
+		EC2EB3262726475A00AB4132 /* EditVC+AccountPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2EB3252726475A00AB4132 /* EditVC+AccountPresenterDelegate.swift */; };
 		ECDB8493271BF14200C0199E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB8492271BF14200C0199E /* AppDelegate.swift */; };
 		ECDB8495271BF14200C0199E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB8494271BF14200C0199E /* SceneDelegate.swift */; };
 		ECDB8497271BF14200C0199E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDB8496271BF14200C0199E /* LoginViewController.swift */; };
@@ -33,6 +39,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC2EB31B2726461F00AB4132 /* LoginVC+LoginPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginVC+LoginPresenterDelegate.swift"; sourceTree = "<group>"; };
+		EC2EB31D2726466B00AB4132 /* RegisterVC+RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterVC+RegisterPresenter.swift"; sourceTree = "<group>"; };
+		EC2EB31F272646A900AB4132 /* AccountVC+AccountPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountVC+AccountPresenterDelegate.swift"; sourceTree = "<group>"; };
+		EC2EB321272646DC00AB4132 /* ToDoListVC+ToDoPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListVC+ToDoPresenterDelegate.swift"; sourceTree = "<group>"; };
+		EC2EB3232726471200AB4132 /* EditVC+EditPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditVC+EditPresenterDelegate.swift"; sourceTree = "<group>"; };
+		EC2EB3252726475A00AB4132 /* EditVC+AccountPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditVC+AccountPresenterDelegate.swift"; sourceTree = "<group>"; };
 		ECDB848F271BF14200C0199E /* ToDoListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDB8492271BF14200C0199E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECDB8494271BF14200C0199E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +157,12 @@
 			isa = PBXGroup;
 			children = (
 				ECDB84B1271C07D400C0199E /* ListView+UITable.swift */,
+				EC2EB31B2726461F00AB4132 /* LoginVC+LoginPresenterDelegate.swift */,
+				EC2EB31D2726466B00AB4132 /* RegisterVC+RegisterPresenter.swift */,
+				EC2EB31F272646A900AB4132 /* AccountVC+AccountPresenterDelegate.swift */,
+				EC2EB321272646DC00AB4132 /* ToDoListVC+ToDoPresenterDelegate.swift */,
+				EC2EB3232726471200AB4132 /* EditVC+EditPresenterDelegate.swift */,
+				EC2EB3252726475A00AB4132 /* EditVC+AccountPresenterDelegate.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -257,13 +275,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2EB3242726471200AB4132 /* EditVC+EditPresenterDelegate.swift in Sources */,
+				EC2EB31C2726461F00AB4132 /* LoginVC+LoginPresenterDelegate.swift in Sources */,
 				ECDB84C1271C57CD00C0199E /* LoginPresenter.swift in Sources */,
 				ECDB84CE271C654400C0199E /* AccountPresenter.swift in Sources */,
 				ECDB84C4271C581200C0199E /* AuthService.swift in Sources */,
+				EC2EB31E2726466B00AB4132 /* RegisterVC+RegisterPresenter.swift in Sources */,
 				ECDB84B5271C0FD800C0199E /* Users.swift in Sources */,
 				ECE3553A271D0137002C9382 /* EditProfilePresenter.swift in Sources */,
 				ECDB8497271BF14200C0199E /* LoginViewController.swift in Sources */,
+				EC2EB320272646A900AB4132 /* AccountVC+AccountPresenterDelegate.swift in Sources */,
+				EC2EB322272646DC00AB4132 /* ToDoListVC+ToDoPresenterDelegate.swift in Sources */,
 				ECDB84AD271C06CB00C0199E /* AccountViewController.swift in Sources */,
+				EC2EB3262726475A00AB4132 /* EditVC+AccountPresenterDelegate.swift in Sources */,
 				ECDB84D4271C738500C0199E /* ToDoListPresenter.swift in Sources */,
 				ECDB8493271BF14200C0199E /* AppDelegate.swift in Sources */,
 				ECDB84BE271C3C1600C0199E /* Task.swift in Sources */,

@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class RegisterViewController: UIViewController, RegisterPresenterDelegate {
+class RegisterViewController: UIViewController {
 	@IBOutlet weak var registerLabel: UILabel!
 	@IBOutlet weak var nameTf: UITextField!
 	@IBOutlet weak var emailTf: UITextField!
@@ -39,15 +39,5 @@ class RegisterViewController: UIViewController, RegisterPresenterDelegate {
 	
 	@IBAction func closePressed(_ sender: UIButton) {
 		self.dismiss(animated: true, completion: nil)
-	}
-
-	func didUpdateToken(token: String) {
-		debugPrint(token)
-		UserDefaults.standard.set(token, forKey: "auth.accessToken")
-		self.performSegue(withIdentifier: "toHome", sender: self)
-	}
-
-	func didFailWithError(error: Error) {
-		print(error)
 	}
 }

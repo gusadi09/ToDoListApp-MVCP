@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class ToDoListViewController: UIViewController, ToDoPresenterDelegate {
+class ToDoListViewController: UIViewController {
 
 	@IBOutlet weak var toDoTable: UITableView!
 
@@ -64,14 +64,5 @@ class ToDoListViewController: UIViewController, ToDoPresenterDelegate {
 		ac.addAction(cancel)
 
 		present(ac, animated: true)
-	}
-
-	func didUpdateList(list: [DataToDo]) {
-		arr = list
-		toDoTable.reloadData()
-	}
-
-	func didFailWithError(error: Error) {
-		print(error)
 	}
 }

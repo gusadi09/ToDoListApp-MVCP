@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class EditProfileViewController: UIViewController, EditProfilePresenterDelegate, AccountPresenterDelegate {
+class EditProfileViewController: UIViewController {
 
 	@IBOutlet weak var nameTf: UITextField!
 	@IBOutlet weak var emailTf: UITextField!
@@ -40,26 +40,6 @@ class EditProfileViewController: UIViewController, EditProfilePresenterDelegate,
 		if let name = nameTf.text, let emails = emailTf.text, let ageStr = ageTf.text, let age = Int(ageStr) {
 			presenter.update(with: token ?? "", name: name, email: emails, age: age)
 		}
-	}
-
-	func didUpdateUserSuccess(success: Bool) {
-		if success {
-			self.dismiss(animated: true, completion: nil)
-		}
-	}
-
-	func didFailWithError(error: Error) {
-		print(error)
-	}
-
-	func didUpdateSuccesLogout(success: Bool) {
-
-	}
-
-	func didUpdateUser(name: String, email: String, age: Int) {
-		nameTf.text = name
-		emailTf.text = email
-		ageTf.text = String(age)
 	}
 
 	@IBAction func backPressed(_ sender: UIButton) {

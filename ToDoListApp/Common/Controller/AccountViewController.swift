@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AccountViewController: UIViewController, AccountPresenterDelegate {
+class AccountViewController: UIViewController {
 
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var emailLabel: UILabel!
@@ -51,23 +51,5 @@ class AccountViewController: UIViewController, AccountPresenterDelegate {
 
 	@IBAction func editPressed(_ sender: UIButton) {
 		self.performSegue(withIdentifier: "toEdit", sender: self)
-	}
-
-	func didUpdateSuccesLogout(success: Bool) {
-		if success {
-			self.performSegue(withIdentifier: "logoutRoute", sender: self)
-		}
-	}
-
-	func didUpdateUser(name: String, email: String, age: Int) {
-		DispatchQueue.main.async {
-			self.nameLabel.text = name
-			self.emailLabel.text = email
-			self.age = UInt(age)
-		}
-	}
-
-	func didFailWithError(error: Error) {
-		print(error)
 	}
 }

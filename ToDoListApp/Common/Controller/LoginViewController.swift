@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class LoginViewController: UIViewController, LoginPresenterDelegate {
+class LoginViewController: UIViewController {
 	@IBOutlet weak var loginLabel: UILabel!
 	@IBOutlet weak var emailTf: UITextField!
 	@IBOutlet weak var passTf: UITextField!
@@ -51,15 +51,5 @@ class LoginViewController: UIViewController, LoginPresenterDelegate {
 		} else {
 			print("Cant empty")
 		}
-	}
-
-	func didUpdateToken(token: String) {
-		debugPrint(token)
-		UserDefaults.standard.set(token, forKey: "auth.accessToken")
-		self.performSegue(withIdentifier: "toHome", sender: self)
-	}
-
-	func didFailWithError(error: Error) {
-		print(error)
 	}
 }
